@@ -1,10 +1,10 @@
 import * as oboe from 'oboe'
 import * as fs from 'fs'
 
-export type NodeType = "hidden" | "array" | "string" | "object" | "code" | "closure" | "regexp" | "number" | "native" | "synthetic" | "concatenated string" | "sliced string" | "symbol" | "bigint"
+export type NodeType = "hidden" | "array" | "string" | "object" | "code" | "closure" | "regexp" | "number" | "native" | "synthetic" | "concatenated string" | "sliced string" | "symbol" | "bigint" | "object shape"
 export type EdgeType = "context" | "element" | "property" | "internal" | "hidden" | "shortcut" | "weak"
 
-type NodeTypeTypes = ["hidden", "array", "string", "object", "code", "closure", "regexp", "number", "native", "synthetic", "concatenated string", "sliced string", "symbol", "bigint"];
+type NodeTypeTypes = ["hidden", "array", "string", "object", "code", "closure", "regexp", "number", "native", "synthetic", "concatenated string", "sliced string", "symbol", "bigint", "object shape"];
 
 interface MetaData {
     readonly node_fields: ["type","name","id","self_size","edge_count","trace_node_id"] | ["type","name","id","self_size","edge_count","trace_node_id","detachedness"]
@@ -44,7 +44,7 @@ function nodeFieldCount(data: RawSnapshotData) {
 const EdgeFieldCount = 3
 
 
-const nodeTypeTypes: NodeTypeTypes = ["hidden", "array", "string", "object", "code", "closure", "regexp", "number", "native", "synthetic", "concatenated string", "sliced string", "symbol", "bigint"];
+const nodeTypeTypes: NodeTypeTypes = ["hidden", "array", "string", "object", "code", "closure", "regexp", "number", "native", "synthetic", "concatenated string", "sliced string", "symbol", "bigint", "object shape"];
 
 const metaDataWithoutDetachedness: MetaData = {
     "node_fields": ["type","name","id","self_size","edge_count","trace_node_id"],
